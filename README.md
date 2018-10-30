@@ -1,5 +1,46 @@
 # DNANEXUS Test Engineer Challenge
 
+## Problem 1: Quality assurance strategies
+
+### In general, how would you go about testing the correctness of the results provided by this service? What tools or frameworks would you use to automate the testing? At what level(s) of granularity would you test the service, and why?
+
+In testing i would focus on following topics:
+ * 
+ 
+ My toolset would be:
+  * Postman - 
+  * Unit test - 
+  * Gatling
+
+### What are some of the specific test cases you would create? (You do not need to write code; just describe them.) Be sure to consider the handling of both valid and invalid queries.
+
+Firts, I would test **various datasets**. I would expect:
+ * OK response for existing datasets 
+ * error with propriate error message for not existing datasets.
+
+Second, I would test **various combination of begin and end parameter**. I would expect to get:
+ * OK response 
+ * OK response or timeout with
+ * Error when
+
+In both previous case I would test the correctnes of response format
+
+
+### The performance of the system must be adequate for real-time interactive use. How would you measure the performance (response time) of the service? What factors or parameters might affect response time? Over what range of these parameters would you measure performance?
+
+### How would you analyze the scalability of the system? I.e., the way the system responds to increasing load (for example, large numbers of simultaneous queries).
+
+ I would measure important parameters of the systems that can be affected by the increasing load:
+  * response time
+  * error rate
+  
+ Input data
+ 
+ Load scenarios
+ 
+ Tool
+     
+     
 
 ## Problem 2: DNA sequence conversion
 The solution is implemented using node.js v11.0.0.
