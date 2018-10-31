@@ -5,8 +5,8 @@
 ### In general, how would you go about testing the correctness of the results provided by this service? What tools or frameworks would you use to automate the testing? At what level(s) of granularity would you test the service, and why?
 
 I would focus on following topics in testing:
-* Correct HTTP responses - I would expect correct response codes and data or appropriate error codes and error messages
-* Correct data in responses - First, I would test the format of the response. Then, I would focus on testing of data correctness. I would use some testing input and output data. I will also compare service responses to itself. For example I would expect that two response for [_start_,_end_] parameters being [1,10] and [11,20] will be equal to on request with parameters [1,20]
+* Correct HTTP responses - I would expect correct response codes and data or appropriate error codes and error messages.
+* Correct data in responses - First, I would test the format of the response. Then, I would focus on the testing of the data correctness. I would use some testing input and output data. I would also compare service responses to itself. For example I would expect that two responses for [_start_,_end_] parameters being [1,10] and [11,20] will be equal to the response on request with parameters [1,20]
 * Performance of the service
 
 As test engineer i would focus on two levels of granularity:
@@ -23,18 +23,18 @@ My toolset would be:
 ### What are some of the specific test cases you would create? (You do not need to write code; just describe them.) Be sure to consider the handling of both valid and invalid queries.
 
 First, I would test **various datasets**. I would expect:
-* OK response for existing datasets, containing response data in correct format
+* OK response for existing datasets, containing response data in correct format.
 * ERROR with appropriate error message for not existing datasets.
 
 Second, I would test **various combination of valid begin and end parameter**. I would expect to get:
-* OK response for valid _beign_ and _end_ query parameters combination
-* OK response or timeout with valid _beign_ and _end_ query parameters combination, but when asking for large begin end position distance (I would prefer not to get timeout, but depends on specification)
+* OK response for valid _beign_ and _end_ query parameters combination.
+* OK response or timeout with valid _beign_ and _end_ query parameters combination, but when asking for large begin end position distance (I would prefer not to get timeout, but depends on specification).
 
 
 In both previous cases I would test the correctness of response format
 
 Third, I would test **invalid input data formats**. I would expect following results:
-* ERROR response and appropriate error message for _end_ and _data_ in wrong format (not numbers)
+* ERROR response and appropriate error message for _end_ and _data_ in wrong format (not numbers).
 
  * ERROR response and appropriate error message for _end_ and _data_ being smaller than zero.
 
@@ -44,7 +44,7 @@ Third, I would test **invalid input data formats**. I would expect following res
 
   * ERROR response and appropriate error message for parameter _begin_ being bigger or equal to _end_ parameter.
  
-Forth, I would test queries with various query parameters, that are not defined in service specification. I would expect that these parameters would not affect the result of the query (OR the response will be ERROR with appropriate error message)
+Fourth, I would test queries with various query parameters, that are not defined in service specification. I would expect that these parameters would not affect the result of the query (OR the response will be ERROR with appropriate error message).
 
 
 ### The performance of the system must be adequate for real-time interactive use. How would you measure the performance (response time) of the service? What factors or parameters might affect response time? Over what range of these parameters would you measure performance?
@@ -67,15 +67,14 @@ I would also test the performance of the service by end to end test. I would exp
 
 I would measure important parameters of the systems that can be affected by the increasing load:
  * response time - how the response time is affected by the load. I will look at **average** response time, **max** response time, and **average response time in 99, 95 and 90 percentile**
- * timeout rate - how the increasing load affects amount of timouted requests
+ * timeout rate - how the increasing load affects amount of timeouted requests
  * error rate - how the load affects  the amount of request ending in ERROR state.
 
 Input data could be defined by tester or could be extracted from logs (data extracted from logs would better simulate the real usage of the service).
 
-It is important to test various types of load, when testing scalability of the system. For example, we can test huge amount of request made at the same time, huge amount of request being made for time period, some amount of requests that is rising (or failing) during some time period, or combination of previous examples.
+It is important to test various types of load, when testing the scalability of the system. For example, we can test huge amount of request made at the same time, huge amount of request being made for a time period, some amount of requests that is rising (or failing) during some time period, or combination of previous examples.
 
-For the scalability testing i would use [gatling.io](http://www.gatling.io).
-   
+ I would use [gatling.io](http://www.gatling.io) for the scalability testing.
    
 
 ## Problem 2: DNA sequence conversion
